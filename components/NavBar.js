@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+// import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {
   Navbar, Container, Nav, Button,
@@ -18,7 +19,13 @@ export default function NavBar() {
           <Nav className="me-auto">
             {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
             <Link passHref href="/">
-              <Nav.Link>Home</Nav.Link>
+              <Nav.Link>Team Roster</Nav.Link>
+            </Link>
+            <Link passHref href="/player/new">
+              <Nav.Link>Add a Player</Nav.Link>
+            </Link>
+            <Link passHref href="/profile">
+              <Nav.Link>Profile</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
@@ -27,3 +34,10 @@ export default function NavBar() {
     </Navbar>
   );
 }
+
+// NavBar.propTypes = {
+//   user: PropTypes.shape({
+//     displayName: PropTypes.string,
+//     photoURL: PropTypes.string,
+//   }).isRequired,
+// };
