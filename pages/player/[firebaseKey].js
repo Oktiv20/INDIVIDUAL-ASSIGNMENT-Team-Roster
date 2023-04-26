@@ -18,7 +18,6 @@ export default function ViewPlayer() {
       <div className="text-white ms-5 details">
         <h5>
           {playerDetails.playerObject?.first_name} {playerDetails.playerObject?.last_name}
-          {playerDetails.playerObject?.captain ? ' 💚' : ''}
           <br />
           <br />
         </h5>

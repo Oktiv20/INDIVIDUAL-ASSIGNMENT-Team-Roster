@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { createPlayer, updatePlayer } from '../../api/playerData';
 import { useAuth } from '../../utils/context/authContext';
+import { getTeams } from '../../api/teamData';
 
 const initialState = {
   first_name: '',
@@ -14,10 +15,13 @@ const initialState = {
 
 export default function PlayerForm({ playerObj }) {
   const [formInput, setFormInput] = useState(initialState);
+  const [teams, setTeams] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
+    getTeams(user.uid).then(setTeams);
+
     if (playerObj.firebaseKey) setFormInput(playerObj);
   }, [playerObj, user]);
 
@@ -32,7 +36,7 @@ export default function PlayerForm({ playerObj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (playerObj.firebaseKey) {
-      updatePlayer(formInput).then(() => router.push('/'));
+      updatePlayer(formInput).then(() => router.push(`/player/${playerObj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createPlayer(payload).then(() => {
@@ -88,6 +92,30 @@ export default function PlayerForm({ playerObj }) {
         </Form.Select>
       </FloatingLabel>
 
+      {/* TEAM INPUT  */}
+      <FloatingLabel controlId="floatingInput4" label="Team" className="mb-3">
+        <Form.Select
+          type="text"
+          placeholder="Select the player's team"
+          name="team_id"
+          value={formInput.team_id}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select a Team</option>
+          {
+            teams.map((team) => (
+              <option
+                key={team.firebaseKey}
+                value={team.firebaseKey}
+              >
+                {team.team_name}
+              </option>
+            ))
+          }
+        </Form.Select>
+      </FloatingLabel>
+
       {/* CAPTAIN CHECK */}
       <Form.Check
         className="text-black mb-3"
@@ -115,6 +143,7 @@ PlayerForm.propTypes = {
     last_name: PropTypes.string,
     position: PropTypes.string,
     captain: PropTypes.bool,
+    team_id: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };
