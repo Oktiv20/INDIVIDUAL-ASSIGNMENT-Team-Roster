@@ -14,15 +14,15 @@ export default function PlayerCard({ playerObj, onUpdate }) {
 
   return (
     <div>
-      <Card style={{ width: '18rem', margin: '10px', backgroundColor: 'gainsboro' }}>
+      <Card style={{
+        width: '18rem', margin: '10px', backgroundColor: 'black', color: 'white', textAlign: 'text-center',
+      }}
+      >
         <Card.Body>
           <Card.Title>{playerObj.first_name} {playerObj.last_name}</Card.Title>
-          <p className="card-text bold">{playerObj.position}</p>
-          <p className="card-text bold">{playerObj.captain ? 'Captain' : ''}</p>
-          {/* DYNAMIC LINK TO VIEW THE PLAYER DETAILS  */}
-          <Link href={`/player/${playerObj.firebaseKey}`} passHref>
-            <Button variant="success" className="m-2">VIEW</Button>
-          </Link>
+          <br />
+          <h5 className="card-text bold">{playerObj.position}</h5>
+          <h5 className="card-text">{playerObj.captain ? 'Captain' : ''}</h5>
           {/* DYNAMIC LINK TO EDIT THE PLAYER DETAILS  */}
           <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
             <Button variant="info">EDIT</Button>

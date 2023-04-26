@@ -13,7 +13,16 @@ const createPlayer = (payload) => new Promise((resolve, reject) => {
     body: JSON.stringify(payload),
   })
     .then((response) => response.json())
-    .then((data) => resolve(data)) // resolve(data)) is sending back one object
+    .then((data) => {
+      const setcode = { firebaseKey: data.name };
+      fetch(`${dbUrl}/players/${setcode.firebaseKey}.json`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(setcode),
+      }).then(resolve);
+    })
     .catch(reject);
 });
 

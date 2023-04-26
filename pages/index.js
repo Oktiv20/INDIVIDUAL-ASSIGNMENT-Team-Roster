@@ -20,7 +20,7 @@ function Home() {
 
   return (
     <div className="text-center my-4">
-      <h1>TEAM</h1>
+      <h1>PLAYERS</h1>
       <Link href="/player/new" passHref>
         <Button>Add A Player</Button>
       </Link>
