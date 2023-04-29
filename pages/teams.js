@@ -20,7 +20,7 @@ export default function Team() {
   }, []);
 
   return (
-    <div className="text-center my-4">
+    <div className="text-center my-4 text-white">
       <h1>TEAMS</h1>
       <Link href="/team/new" passHref>
         <Button>Add A Team</Button>

@@ -24,6 +24,9 @@ export default function PlayerCard({ playerObj, onUpdate }) {
           <h5 className="card-text bold">{playerObj.position}</h5>
           <h5 className="card-text">{playerObj.captain ? 'Captain' : ''}</h5>
           {/* DYNAMIC LINK TO EDIT THE PLAYER DETAILS  */}
+          <Link href={`/player/${playerObj.firebaseKey}`} passHref>
+            <Button variant="success" className="m-2">VIEW</Button>
+          </Link>
           <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
             <Button variant="info">EDIT</Button>
           </Link>

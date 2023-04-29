@@ -11,6 +11,7 @@ const initialState = {
   team_name: '',
   city: '',
   stanleycups: '',
+  image: '',
   favorite: false,
 };
 
@@ -79,6 +80,18 @@ function TeamForm({ teamObj }) {
           placeholder="Enter Number of Stanley Cups"
           name="stanleycups"
           value={formInput.stanleycups}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      {/* IMAGE INPUT  */}
+      <FloatingLabel controlId="floatingInput5" label="Team Image" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter an image url"
+          name="image"
+          value={formInput.image}
           onChange={handleChange}
           required
         />

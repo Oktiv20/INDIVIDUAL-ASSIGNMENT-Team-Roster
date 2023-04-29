@@ -10,6 +10,7 @@ const initialState = {
   first_name: '',
   last_name: '',
   position: '',
+  image: '',
   captain: false,
 };
 
@@ -47,7 +48,7 @@ export default function PlayerForm({ playerObj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-black mt-5">{playerObj.firebaseKey ? 'Update' : 'Create'} Player</h2>
+      <h2 className="text-white mt-5">{playerObj.firebaseKey ? 'Update' : 'Create'} Player</h2>
 
       {/* FIRST NAME INPUT */}
       <FloatingLabel controlId="floatingInput1" label="First Name" className="mb-3">
@@ -116,6 +117,18 @@ export default function PlayerForm({ playerObj }) {
         </Form.Select>
       </FloatingLabel>
 
+      {/* IMAGE INPUT  */}
+      <FloatingLabel controlId="floatingInput5" label="Player Image" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter an image url"
+          name="image"
+          value={formInput.image}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
       {/* CAPTAIN CHECK */}
       <Form.Check
         className="text-black mb-3"
@@ -141,6 +154,7 @@ PlayerForm.propTypes = {
   playerObj: PropTypes.shape({
     first_name: PropTypes.string,
     last_name: PropTypes.string,
+    image: PropTypes.string,
     position: PropTypes.string,
     captain: PropTypes.bool,
     team_id: PropTypes.string,

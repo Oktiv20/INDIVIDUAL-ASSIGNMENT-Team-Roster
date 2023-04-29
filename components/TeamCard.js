@@ -16,17 +16,17 @@ function TeamCard({ teamObj, onUpdate }) {
 
   return (
     <Card style={{
-      width: '18rem', height: '20rem', margin: '10px', backgroundColor: 'black', color: 'white',
+      width: '18rem', height: '28rem', margin: '10px', backgroundColor: 'black', color: 'white',
     }}
     >
       <Card.Body>
+        <Card.Img variant="top" src={teamObj.image} alt={teamObj.image} style={{ height: '150px', width: '150px' }} />
+        <br />
         <Card.Title>{teamObj.team_name}</Card.Title>
         <br />
         <p className="card-text bold">{teamObj.city_state}</p>
-        <br />
-        <br />
         <p className="card-text bold">Stanley Cups: {teamObj.stanleycups}</p>
-        <br />
+        <p className="card-text bold">{teamObj.favorite ? 'FAVORITE ⭐' : ''}</p>
         <br />
         {/* DYNAMIC LINK TO VIEW THE AUTHOR DETAILS  */}
         <Link href={`/team/${teamObj.firebaseKey}`} passHref>
@@ -49,6 +49,7 @@ TeamCard.propTypes = {
     team_name: PropTypes.string,
     city_state: PropTypes.string,
     stanleycups: PropTypes.string,
+    image: PropTypes.string,
     favorite: PropTypes.bool,
     firebaseKey: PropTypes.string,
   }).isRequired,
