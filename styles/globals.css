@@ -1,11 +1,17 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-image: url("https://wallpaperaccess.com/full/2251781.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+    /* background-color: goldenrod; */
 }
 
 a {
@@ -17,6 +23,10 @@ a {
   box-sizing: border-box;
 }
 
-body {
-  background-color: goldenrod;
+#signIn {
+  color: rgb(0, 153, 255);
+}
+
+#sign {
+  color:  rgb(0, 153, 255);
 }
