@@ -15,7 +15,7 @@ NHL Team-Rost is a CRUD app built with React and Next.js that allows users to bu
 [Team-Roster](https://github.com/Oktiv20/INDIVIDUAL-ASSIGNMENT-Team-Roster)
 
 # Screenshots
-![Home Page](https://github.com/Oktiv20/INDIVIDUAL-ASSIGNMENT-Team-Roster/blob/main/image/Players%20View.png)
+![Home Page](https://github.com/Oktiv20/INDIVIDUAL-ASSIGNMENT-Team-Roster/blob/f5a7fc954696a815cb14f73dfda9a61fb9b225ac/image/Players%20View.png)
 
 # Contributors
 
